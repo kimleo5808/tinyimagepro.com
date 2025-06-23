@@ -17,7 +17,7 @@ let imageQueue = [];
 // --- 事件监听器 ---
 
 // 1. 点击上传区域，触发文件选择
-uploadBox.addEventListener('click', () => fileInput.click());
+uploadBox.addEventListener('click', () => fileInput.click()); 
 
 // 2. 处理拖拽事件
 uploadBox.addEventListener('dragover', (e) => {
