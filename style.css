@@ -28,44 +28,64 @@ header {
     /* border-bottom: 1px solid var(--border-color); */ /* 移除底部分割线 */
 }
 
+/* 导航栏样式 */
 .main-nav {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: space-between; /* 两端对齐：logo 在左，菜单在右 */
+    align-items: center; /* 垂直居中 */
+    padding: 1rem 0; /* 上下内边距 */
+    border-bottom: 1px solid var(--border-color); /* 底部边框线 */
+    margin-bottom: 2rem; /* 和下方内容的间距 */
+}
+
+.logo-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    max-width: 1200px;
-    margin: 0 auto; /* 居中导航栏 */
-    border-bottom: 1px solid var(--border-color); /* 在导航栏下方添加横线 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); /* 添加细微的阴影效果 */
+    gap: 0.75rem; /* logo 和文字的间距 */
+    font-size: 1.5rem; /* 字体大一点 */
+    font-weight: 600; /* 字体粗一点 */
+    color: var(--text-primary);
+    text-decoration: none;
 }
 
-.logo-container .logo-img {
-    height: 120px; /* 控制 logo 高度 */
-    display: block; /* 避免图片下方有空隙 */
+.logo-img {
+    height: 40px; /* logo 图片高度 */
 }
 
+/* 导航菜单容器 */
 .nav-menu {
-    list-style: none;
+    list-style-type: none; /* 移除列表默认的小黑点 */
     margin: 0;
     padding: 0;
+    display: flex; /* 让菜单项横向排列 */
+    gap: 1rem; /* 菜单项之间的间距 */
 }
 
+/* 导航链接样式 - 纯文本按钮 */
 .nav-link {
+    padding: 0.6rem 1.2rem; /* 内边距，让按钮更饱满 */
+    border-radius: 8px; /* 圆角 */
     text-decoration: none;
-    color: var(--text-color);
     font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s ease, color 0.2s ease; /* 过渡效果 */
+    border: 1px solid transparent; /* 预留边框位置，避免跳动 */
+    background-color: transparent; /* 默认背景透明 */
+    color: var(--text-primary); /* 默认文字颜色 */
 }
 
 .nav-link:hover {
-    background-color: #e9e9eb;
+    background-color: #eef1f5; /* 鼠标悬浮时，使用非常浅的灰色 */
+}
+
+.nav-link.active {
+    background-color: var(--accent-color); /* 激活状态，使用网站的主题蓝色 */
+    color: #fff; /* 文字颜色变为白色，形成对比 */
+    border-color: var(--accent-color); /* 边框也使用主题色 */
 }
 
 .hero-slogan {
-    padding: 30px 20px; /* 减小了上下内边距 */
-    text-align: center;
+    text-align: center; /* 文本居中 */
+    padding: 3rem 1rem; /* 上下留出足够的空间 */
 }
 
 .hero-slogan h2 {
