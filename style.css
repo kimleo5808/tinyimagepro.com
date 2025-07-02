@@ -1,0 +1,371 @@
+/* 全局样式 */
+:root {
+    /* 定义颜色变量，方便统一管理和修改 */
+    --bg-color: #f5f5f7; /* 页面背景色 */
+    --container-bg-color: #ffffff; /* 容器背景色 */
+    --text-color: #1d1d1f; /* 主要文字颜色 */
+    --subtle-text-color: #86868b; /* 次要文字颜色 */
+    --accent-color: #007aff; /* 强调色，用于按钮和链接 */
+    --border-color: #d2d2d7; /* 边框颜色 */
+}
+
+body {
+    /* 设置字体、背景和文字颜色 */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0; /* 消除 body 的默认外边距 */
+    display: flex; /* 使用 flex 布局 */
+    flex-direction: column; /* 子元素垂直排列 */
+    min-height: 100vh; /* 最小高度为视口高度 */
+    text-align: center; /* 全局文字居中 */
+}
+
+/* 头部样式 */
+header {
+    padding: 0; /* 移除内边距，由内部元素控制 */
+    width: 100%;
+    /* border-bottom: 1px solid var(--border-color); */ /* 移除底部分割线 */
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    max-width: 1200px;
+    margin: 0 auto; /* 居中导航栏 */
+    border-bottom: 1px solid var(--border-color); /* 在导航栏下方添加横线 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); /* 添加细微的阴影效果 */
+}
+
+.logo-container .logo-img {
+    height: 120px; /* 控制 logo 高度 */
+    display: block; /* 避免图片下方有空隙 */
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+    background-color: #e9e9eb;
+}
+
+.hero-slogan {
+    padding: 30px 20px; /* 减小了上下内边距 */
+    text-align: center;
+}
+
+.hero-slogan h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 15px;
+}
+
+.hero-slogan p {
+    font-size: 18px;
+    color: var(--subtle-text-color);
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* 主内容区样式 */
+main {
+    flex: 1; /* 占据剩余所有空间 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 水平居中 */
+    padding: 40px 20px; /* 增加顶部内边距 */
+}
+
+/* 上传区域样式 */
+.upload-box {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px 15px; /* 减小了上下和左右的内边距 */
+    border: 2px dashed var(--border-color);
+    border-radius: 20px;
+    background-color: var(--container-bg-color);
+    cursor: pointer; /* 鼠标悬浮时显示手型 */
+    transition: background-color 0.2s; /* 背景色过渡效果 */
+}
+
+.upload-box:hover {
+    background-color: #f0f7ff; /* 鼠标悬浮时改变背景色 */
+}
+
+.upload-box p {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.upload-box span {
+    color: var(--subtle-text-color);
+    font-size: 14px;
+}
+
+/* 主工具区域和内容区域的包装器 */
+.tool-wrapper, .content-wrapper {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.tool-wrapper {
+    background-color: var(--container-bg-color);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 35vh; /* 减小最小高度以减少外部空白 */
+}
+
+.content-wrapper {
+    max-width: 900px;
+}
+
+/* 信息内容板块的通用样式 */
+.info-section {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-section:last-child {
+    border-bottom: none;
+}
+
+.info-section h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.info-section p, .info-section li {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--subtle-text-color);
+    max-width: 700px; /* 优化长文本阅读体验 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 特性板块的网格布局 */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.feature-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.feature-item p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* FAQ 板块样式 */
+.faq-item {
+    margin-bottom: 20px;
+    text-align: left;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+/* 代码高亮样式 */
+.code-inline {
+    font-family: "SF Mono", "Consolas", "Menlo", monospace;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.9em;
+}
+
+/* 文本中高亮关键词的样式 */
+.highlight {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* 结果展示区域样式 */
+.result-area {
+    width: 100%;
+    /* max-width: 1200px; */ /* 宽度已由父级 .tool-wrapper 控制 */
+    padding: 20px;
+    border-radius: 20px;
+    /* background-color: var(--container-bg-color); */ /* 背景已由父级 .tool-wrapper 控制 */
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */ /* 阴影已由父级 .tool-wrapper 控制 */
+}
+
+/* 网格布局样式，用于展示图片卡片 */
+.image-grid {
+    display: grid;
+    /* 自动填充列，每列最小 250px，最大 1fr (占据剩余空间) */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px; /* 卡片之间的间距 */
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* 单个图片卡片的样式 */
+.image-card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden; /* 确保内容不会超出圆角范围 */
+    background-color: #fcfcfc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.image-card .image-preview {
+    width: 100%;
+    height: 180px; /* 固定高度 */
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-card img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    object-fit: cover; /* 保持图片比例，裁剪多余部分 */
+}
+
+/* 图片信息区域的样式 */
+.image-info {
+    padding: 15px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.image-info p {
+    margin: 0 0 8px;
+    white-space: nowrap; /* 防止文件名换行 */
+    overflow: hidden;
+    text-overflow: ellipsis; /* 文件名过长时显示省略号 */
+}
+
+.image-info .file-name {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.image-info .file-size {
+    color: var(--subtle-text-color);
+}
+
+.image-info .compressed-size {
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+/* 控制区域样式 */
+.controls {
+    margin: 20px 0;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.controls label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--subtle-text-color);
+}
+
+.controls .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.controls input[type="range"] {
+    width: 60%;
+    max-width: 300px;
+}
+
+/* 下载区域样式 */
+.download-area {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none; /* 去除下划线 */
+    border-radius: 12px;
+    transition: background-color 0.2s;
+    border: none; /* 按钮不需要边框 */
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0066cc; /* 鼠标悬浮时加深颜色 */
+}
+
+/* 底部样式 */
+footer {
+    padding: 20px;
+    color: var(--subtle-text-color);
+    font-size: 12px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .hero-slogan h2 {
+        font-size: 32px;
+    }
+
+    .hero-slogan p {
+        font-size: 16px;
+    }
+    .image-grid {
+        /* 在小屏幕上，设置最小列宽，使其能更好地适应 */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .info-section h2 {
+        font-size: 24px;
+    }
+} 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>JPG to PDF - Convert Your JPG to PDF Online for Free</title>
+    <meta name="description" content="Free online tool to convert JPG and JPEG images to PDF documents. Combine multiple JPGs into a single PDF file easily, securely, and with high quality.">
+    <meta name="keywords" content="jpg to pdf, convert jpg to pdf, jpg to pdf converter, jpeg to pdf, image to pdf, jpg2pdf">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Page Header (Consistent with index.html) -->
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="logo-container">
+                <img src="assets/logo.png" alt="TinyImagePro Logo" class="logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Image Compressor</a></li>
+                <li><a href="jpg-to-pdf.html" class="nav-link active">JPG to PDF</a></li>
+            </ul>
+        </nav>
+        <div class="hero-slogan">
+            <h2>Convert JPG to PDF Instantly</h2>
+            <p>Combine multiple JPGs into a single, easy-to-share PDF document. Fast, secure, and 100% free.</p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <div class="tool-wrapper">
+            <!-- Upload Box -->
+            <section class="upload-box" id="upload-box-pdf">
+                <div id="upload-label">
+                    <p>Click or drag JPG images here</p>
+                    <span>Combine multiple images into one PDF</span>
+                </div>
+                <input type="file" id="file-input-pdf" accept="image/jpeg" multiple hidden>
+            </section>
+
+            <!-- Results Area for PDF conversion -->
+            <section class="result-area" id="result-area-pdf" hidden>
+                <!-- Grid for image previews -->
+                <div class="image-grid" id="image-grid-pdf">
+                    <!-- Image cards for PDF conversion will be dynamically inserted here -->
+                </div>
+    
+                <!-- Download Area -->
+                <div class="download-area">
+                    <button id="download-btn-pdf" class="button">Convert & Download as PDF</button>
+                    <button id="add-more-btn" class="button secondary-button">Add More Images</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Informational Content Sections for SEO -->
+        <div class="content-wrapper">
+            <section class="info-section">
+                <h2>How to Convert JPG to PDF Online</h2>
+                <ol class="steps-list">
+                    <li>Click the upload box to select your JPG files. You can select multiple images at once.</li>
+                    <li>Drag and drop the image thumbnails to reorder them as you wish them to appear in the PDF.</li>
+                    <li>Click the "Convert & Download as PDF" button.</li>
+                    <li>Your PDF file will be created and downloaded instantly. All processing is done in your browser for maximum privacy.</li>
+                </ol>
+            </section>
+            
+            <section class="info-section">
+                <h2>The Best Free JPG to PDF Converter</h2>
+                <p>TinyImagePro offers a seamless and secure solution to convert JPG to PDF. Unlike other services, we perform all conversions directly on your device. This means your files are never uploaded to a server, guaranteeing your privacy. Whether you need to combine receipts, reports, or a series of photos, our tool creates a high-quality, single PDF document in seconds. It's the perfect free online JPG to PDF converter for all your needs.</p>
+            </section>
+
+            <section id="faq" class="info-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>How many JPGs can I convert to a single PDF?</h3>
+                    <p>There are no artificial limits. You can upload and convert as many JPGs as your browser can handle. Performance depends on the number of images and your computer's memory.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is it safe to use this JPG to PDF converter?</h3>
+                    <p>Yes, 100% safe. Since the entire conversion process happens locally in your browser, your sensitive images never leave your computer. This makes our tool one of the most secure options available.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Page Footer (Consistent with index.html) -->
+    <footer>
+        <p>&copy; 2024 TinyImagePro. Built with ❤️ by TinyImagePro.</p>
+    </footer>
+
+    <!-- External library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- New application script for this page -->
+    <script src="jpg-to-pdf.js"></script>
+</body>
+</html> 

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>TinyImagePro - Online Image Compressor for PNG & JPEG</title>
+    <meta name="description" content="TinyImagePro is a free and powerful online tool to compress your PNG and JPEG images. Reduce file size with our batch image compression tool without sacrificing quality. Secure, fast, and all in your browser.">
+    <meta name="keywords" content="image compression, compress image, image optimizer, png compressor, jpg compressor, reduce image size, image size reducer, batch image compression, tinyimagepro">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) - 请将 G-YOUR_ID_HERE 替换为你的衡量ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_ID_HERE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YOUR_ID_HERE');
+    </script>
+</head>
+<body>
+
+    <!-- Page Header -->
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="logo-container">
+                <img src="assets/logo.png" alt="TinyImagePro Logo" class="logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Image Compressor</a></li>
+                <li><a href="jpg-to-pdf.html" class="nav-link">JPG to PDF</a></li>
+            </ul>
+        </nav>
+        <div class="hero-slogan">
+            <h2>Compress Images Instantly</h2>
+            <p>Reduce JPG, PNG, GIF, or SVG file size without losing quality. Fast, secure, and 100% free.</p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- The main tool area -->
+        <div class="tool-wrapper">
+            <!-- Upload Box -->
+            <section class="upload-box">
+                <div id="upload-label">
+                    <p>Click or drag images here to upload</p>
+                    <span>Supports PNG, JPG, etc.</span>
+                </div>
+                <!-- File input, visually hidden, triggered by clicking the parent. Now accepts multiple files. -->
+                <input type="file" id="file-input" accept="image/png, image/jpeg" multiple hidden>
+            </section>
+    
+            <!-- Results Area, hidden by default. Redesigned for batch processing. -->
+            <section class="result-area" id="result-area" hidden>
+                <!-- Global Controls -->
+                <div class="controls">
+                    <label for="quality-slider">Compression Quality (lower value = higher compression)</label>
+                    <div class="slider-container">
+                        <input type="range" id="quality-slider" min="1" max="100" value="80">
+                        <span id="quality-value">80%</span>
+                    </div>
+                </div>
+    
+                <!-- Grid for image previews -->
+                <div class="image-grid" id="image-grid">
+                    <!-- Image cards will be dynamically inserted here by JavaScript -->
+                </div>
+    
+                <!-- Download Area -->
+                <div class="download-area">
+                    <button id="download-btn" class="button">Download All (.zip)</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Informational Content Sections for SEO -->
+        <div class="content-wrapper">
+            <section id="features" class="info-section">
+                <h2>Why Use Our Online Image Compressor?</h2>
+                <div class="features-grid">
+                    <article class="feature-item">
+                        <h3>Secure & Private Compression</h3>
+                        <p>Your images are never uploaded. Our tool uses your browser to compress pictures, ensuring your data remains 100% private and secure.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Batch PNG & JPEG Compression</h3>
+                        <p>Save time when you need to shrink photo files. Our batch processing allows you to compress multiple images at once and download them in a ZIP.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Reduce Image Size for Free</h3>
+                        <p>TinyImagePro is a completely free image compressor. It's the perfect solution to reduce image size for your website or social media uploads.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="how-it-works" class="info-section">
+                <h2>How Our Image Compressor Works</h2>
+                <p>Our tool uses a smart, client-side lossy compression method to shrink photo files. When you need to <strong class="highlight">compress JPEG online</strong>, our algorithm intelligently reduces non-essential data. To <strong class="highlight">compress PNG</strong> files, it reduces the color palette while preserving full alpha transparency. This all happens in your browser, making it a fast and secure way to <strong class="highlight">reduce image size</strong> without a noticeable drop in quality.</p>
+            </section>
+
+            <section id="faq" class="info-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>What image formats can I compress?</h3>
+                    <p>You can use our online tool to <strong class="highlight">compress PNG</strong> and <strong class="highlight">compress JPEG</strong> (JPG) files. These are the most common formats for web use, and our tool is optimized to provide the best compression for them.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is there a limit to how many photos I can shrink?</h3>
+                    <p>No limits! You can use our <strong class="highlight">image compressor</strong> as many times as you need. For very large batches, performance may depend on your computer's processing power, as all the work is done locally for your security.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is it safe to compress images with this tool?</h3>
+                    <p>Absolutely. TinyImagePro is one of the safest ways to <strong class="highlight">reduce image size</strong> because your original files never leave your computer. The entire compression process happens in your browser.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Page Footer -->
+    <footer>
+        <p>&copy; 2024 TinyImagePro. Built with ❤️ by TinyImagePro.</p>
+    </footer>
+
+    <!-- External libraries for ZIP and saving files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <!-- Main application script -->
+    <script src="script.js"></script>
+</body>
+</html> 
