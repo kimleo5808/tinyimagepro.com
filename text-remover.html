@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>AI Text Remover - Instantly Remove Text From Images</title>
+    <meta name="description" content="Use our free AI-powered text remover to instantly remove text from any image online. Clean up your photos, mockups, and e-commerce shots without needing complex software.">
+    <meta name="keywords" content="text remover, remove text from image, erase text from photo, image text removal, photo text editor, cleanup pictures, AI text remover">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Page Header -->
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="logo-container">
+                <img src="assets/logo.png" alt="TinyImagePro Logo" class="logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Image Compressor</a></li>
+                <li><a href="jpg-to-pdf.html" class="nav-link">JPG to PDF</a></li>
+                <li><a href="text-remover.html" class="nav-link active">Text Remover</a></li>
+            </ul>
+        </nav>
+        <div class="hero-slogan">
+            <h2>Remove Text From Any Image</h2>
+            <p>Our AI-powered tool lets you erase unwanted text from your pictures in seconds, not hours.</p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <div class="tool-wrapper">
+            <!-- Upload Box -->
+            <section class="upload-box" id="upload-box-remover">
+                <div id="upload-label">
+                    <p>Click or drag an image here to start</p>
+                    <span>Supports PNG, JPG, etc.</span>
+                </div>
+                <input type="file" id="file-input-remover" accept="image/png, image/jpeg" hidden>
+            </section>
+    
+            <!-- Editor Area -->
+            <section class="result-area" id="editor-area" hidden>
+                <p class="editor-instructions">Brush over the text you want to remove, then click the button below.</p>
+                <div class="canvas-container">
+                    <canvas id="image-canvas"></canvas>
+                </div>
+                <div class="editor-controls">
+                    <div class="brush-slider-container">
+                        <label for="brush-size">Brush Size:</label>
+                        <input type="range" id="brush-size" min="5" max="100" value="30">
+                    </div>
+                    <button id="remove-text-btn" class="button">Remove Text</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Informational Content Sections for SEO -->
+        <div class="content-wrapper">
+            <section id="how-it-works" class="info-section">
+                <h2>How to Remove Text From an Image in 3 Simple Steps</h2>
+                <ol class="steps-list" style="max-width: 600px; margin: 0 auto; text-align: left;">
+                    <li><strong>Upload Your Image:</strong> Drag and drop your JPG or PNG file into the upload box, or click to select a file from your computer.</li>
+                    <li><strong>Highlight the Text:</strong> Use our intuitive brush tool to paint over any unwanted text. You can adjust the brush size for perfect precision.</li>
+                    <li><strong>Download Your Clean Image:</strong> Our AI will intelligently remove the selected text and reconstruct the background. Click the download button to save your perfected image.</li>
+                </ol>
+            </section>
+            
+            <section id="why-use" class="info-section">
+                <h2>Why Our AI Text Remover is the Best Choice</h2>
+                <p>In today's visually-driven world, a clean and professional image is paramount. Unwanted text, watermarks, or logos can distract from your core message and diminish the impact of your visuals. While traditional photo editing software like Photoshop requires technical skill and significant time investment, our AI Text Remover offers a revolutionary solution. It empowers everyone—from marketing professionals to e-commerce store owners and social media enthusiasts—to <strong class="highlight">remove text from an image</strong> effortlessly and instantly.</p>
+                <p>Our tool leverages a state-of-the-art inpainting algorithm. When you highlight a text area, the AI doesn't just cover it up; it analyzes the surrounding pixels, understands the context of the background—be it a brick wall, a landscape, or a fabric pattern—and intelligently reconstructs the area as if the text was never there. This results in a seamless, natural-looking image that retains its original quality, a feat that is often difficult to achieve with manual editing. This makes our tool the perfect <strong class="highlight">text remover</strong> for any situation.</p>
+            </section>
+
+            <section id="use-cases" class="info-section">
+                <h2>Perfect for Every Use Case</h2>
+                <div class="features-grid">
+                    <article class="feature-item">
+                        <h3>E-commerce Product Shots</h3>
+                        <p>Remove supplier watermarks or irrelevant text from product photos to create a clean, uniform look for your online store. A consistent brand presentation builds trust and improves customer experience.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Social Media Content</h3>
+                        <p>Want to repurpose a great meme or image but need to remove the original text? Our tool lets you quickly clean up images so you can add your own captions and share them with your audience in minutes.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Real Estate Photography</h3>
+                        <p>Easily remove signs, addresses, or other distracting text from property photos. Presenting a clean, unobstructed view of a property can significantly increase its appeal to potential buyers.</p>
+                    </article>
+                    <article class="feature-item">
+                        <h3>Design Mockups</h3>
+                        <p>Need to place your own design on a blank billboard, t-shirt, or packaging? Use our <strong class="highlight">text remover</strong> to clean up stock photos and create the perfect canvas for your creative mockups.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="faq" class="info-section">
+                <h2>Frequently Asked Questions about Text Removal</h2>
+                <div class="faq-item">
+                    <h3>How do you remove text from an image without damaging the background?</h3>
+                    <p>Our tool uses a sophisticated AI technology called "inpainting." Instead of just blurring or smudging the text, the AI analyzes the surrounding background and intelligently fills in the erased area. This ensures the result looks natural and the original background texture and lighting are preserved.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I use this text remover for free?</h3>
+                    <p>Yes, TinyImagePro's text remover is free to use for standard-resolution images. We believe powerful editing tools should be accessible to everyone. For very high-resolution files or advanced features, we may offer a Pro version in the future.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is it better than using a clone stamp or blur tool?</h3>
+                    <p>Absolutely. While clone stamps and blur tools can cover text, they often leave obvious, unprofessional-looking marks. A blur is easily noticeable, and a poorly used clone stamp creates repetitive patterns. Our AI <strong class="highlight">text remover</strong> provides a superior result by genuinely recreating the background for a clean, seamless finish.</p>
+                </div>
+                 <div class="faq-item">
+                    <h3>What file formats are supported?</h3>
+                    <p>You can upload the most common image formats, including JPG (JPEG) and PNG. After you <strong class="highlight">remove text from the image</strong>, you will be able to download the final result as a high-quality PNG file.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Page Footer (Consistent with index.html) -->
+    <footer>
+        <p>&copy; 2024 TinyImagePro. Built with ❤️ by TinyImagePro.</p>
+    </footer>
+
+    <!-- JS for this page -->
+    <script src="text-remover.js"></script>
+</body>
+</html> 
