@@ -92,8 +92,8 @@ header {
     display: none; /* 默认在桌面端隐藏 */
     flex-direction: column;
     justify-content: space-around;
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem; /* 减小宽度 */
+    height: 1.5rem; /* 减小高度 */
     background: transparent;
     border: none;
     cursor: pointer;
@@ -106,8 +106,8 @@ header {
 }
 
 .hamburger-menu div {
-    width: 2rem;
-    height: 0.25rem;
+    width: 1.5rem; /* 减小横线宽度 */
+    height: 0.15rem; /* 减小横线粗细 */
     background: var(--text-color);
     border-radius: 10px;
     transition: all 0.3s linear;
