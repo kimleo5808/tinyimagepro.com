@@ -9,6 +9,45 @@
     <meta name="keywords" content="image compression, compress image, image optimizer, png compressor, jpg compressor, reduce image size, image size reducer, batch image compression, tinyimagepro">
     
     <link rel="stylesheet" href="style.css">
+    
+    <!-- 内联样式确保导航栏显示 -->
+    <style>
+        .main-nav {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 1rem 0 !important;
+            border-bottom: 1px solid #d2d2d7 !important;
+            margin-bottom: 2rem !important;
+        }
+        .nav-menu {
+            list-style-type: none !important;
+            margin: 0 !important;
+            padding: 10px !important;
+            display: flex !important;
+            gap: 1rem !important;
+            background-color: rgba(0, 122, 255, 0.3) !important;
+            border-radius: 8px !important;
+        }
+        .nav-link {
+            padding: 0.6rem 1.2rem !important;
+            border-radius: 8px !important;
+            text-decoration: none !important;
+            font-weight: 500 !important;
+            border: 2px solid #007aff !important;
+            background-color: #f8f9fa !important;
+            color: #1d1d1f !important;
+            display: inline-block !important;
+            margin: 0 5px !important;
+        }
+        .nav-link:hover {
+            background-color: #eef1f5 !important;
+        }
+        .nav-link.active {
+            background-color: #007aff !important;
+            color: #fff !important;
+        }
+    </style>
 
     <!-- Google tag (gtag.js) - 请将 G-YOUR_ID_HERE 替换为你的衡量ID -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_ID_HERE"></script>
@@ -29,9 +68,11 @@
             <a href="index.html" class="logo-container">
                 <img src="assets/logo.png" alt="TinyImagePro Logo" class="logo-img">
             </a>
+            <!-- 调试信息：如果您看到这行，说明页面已更新 -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Image Compressor</a></li>
                 <li><a href="jpg-to-pdf.html" class="nav-link">JPG to PDF</a></li>
+                <li style="color: red; font-size: 12px;">更新时间: 现在</li>
             </ul>
         </nav>
         <div class="hero-slogan">
