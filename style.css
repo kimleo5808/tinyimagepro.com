@@ -49,7 +49,7 @@ header {
 }
 
 .logo-img {
-    height: 40px; /* logo 图片高度恢复到40px */
+    height: 100px; /* logo 图片高度设置为100px */
     width: auto; /* 宽度自动，保持比例 */
 }
 
