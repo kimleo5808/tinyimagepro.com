@@ -1,489 +1,20 @@
 /* 全局样式 */
 :root {
-    /* 定义颜色变量，方便统一管理和修改 */
-    --bg-color: #f5f5f7; /* 页面背景色 */
-    --container-bg-color: #ffffff; /* 容器背景色 */
-    --text-color: #1d1d1f; /* 主要文字颜色 */
-    --subtle-text-color: #86868b; /* 次要文字颜色 */
-    --accent-color: #007aff; /* 强调色，用于按钮和链接 */
-    --border-color: #d2d2d7; /* 边框颜色 */
+    --bg-color: #f5f5f7;
+    --container-bg-color: #ffffff;
+    --text-color: #1d1d1f;
+    --subtle-text-color: #86868b;
+    --accent-color: #007aff;
+    --border-color: #d2d2d7;
+    --primary-color: #007bff;
+    --primary-color-light: #cce5ff;
 }
 
 body {
-    /* 设置字体、背景和文字颜色 */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    margin: 0; /* 消除 body 的默认外边距 */
-    display: flex; /* 使用 flex 布局 */
-    flex-direction: column; /* 子元素垂直排列 */
-    min-height: 100vh; /* 最小高度为视口高度 */
-    text-align: center; /* 全局文字居中 */
-}
-
-/* 头部样式 */
-header {
-    padding: 0; /* 移除内边距，由内部元素控制 */
-    width: 100%;
-    /* border-bottom: 1px solid var(--border-color); */ /* 移除底部分割线 */
-}
-
-/* 导航栏样式 */
-.main-nav {
-    display: flex; /* 使用 Flexbox 布局 */
-    justify-content: space-between; /* 两端对齐：logo 在左，菜单在右 */
-    align-items: center; /* 垂直居中 */
-    padding: 1rem 0; /* 上下内边距 */
-    border-bottom: 1px solid var(--border-color); /* 底部边框线 */
-    margin-bottom: 2rem; /* 和下方内容的间距 */
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem; /* logo 和文字的间距 */
-    font-size: 1.5rem; /* 字体大一点 */
-    font-weight: 600; /* 字体粗一点 */
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-.logo-img {
-    height: 40px;
-}
-
-/* 导航菜单容器 */
-.nav-menu {
-    list-style-type: none; /* 移除列表默认的小黑点 */
     margin: 0;
-    padding: 0;
-    display: flex; /* 让菜单项横向排列 */
-    gap: 2rem;
-}
-
-/* 导航链接样式 - 最终版本 */
-.nav-link {
-    padding: 0.5rem 1rem;
-    font-size: 14px; /* 减小字体大小 */
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    background-color: transparent; /* 默认背景透明 */
-    color: var(--text-color);
-    margin: 0 4px; /* 按钮之间的微小间距 */
-}
-
-.nav-link:hover {
-    color: var(--primary-color);
-}
-
-.nav-link.active {
-    color: var(--primary-color);
-    border-color: var(--primary-color-light);
-}
-
-.hero-slogan {
-    text-align: center; /* 文本居中 */
-    padding: 3rem 1rem; /* 上下留出足够的空间 */
-}
-
-.hero-slogan h2 {
-    font-size: 40px;
-    font-weight: 600;
-    color: var(--text-color);
-    margin: 0 0 15px;
-}
-
-.hero-slogan p {
-    font-size: 18px;
-    color: var(--subtle-text-color);
-    max-width: 550px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* 主内容区样式 */
-main {
-    flex: 1; /* 占据剩余所有空间 */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 水平居中 */
-    padding: 40px 20px; /* 增加顶部内边距 */
-}
-
-/* 上传区域样式 */
-.upload-box {
-    width: 100%;
-    max-width: 600px;
-    padding: 40px 15px; /* 减小了上下和左右的内边距 */
-    border: 2px dashed var(--border-color);
-    border-radius: 20px;
-    background-color: var(--container-bg-color);
-    cursor: pointer; /* 鼠标悬浮时显示手型 */
-    transition: background-color 0.2s; /* 背景色过渡效果 */
-}
-
-.upload-box:hover {
-    background-color: #f0f7ff; /* 鼠标悬浮时改变背景色 */
-}
-
-.upload-box p {
-    margin: 0 0 10px;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.upload-box span {
-    color: var(--subtle-text-color);
-    font-size: 14px;
-}
-
-/* 主工具区域和内容区域的包装器 */
-.tool-wrapper, .content-wrapper {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.tool-wrapper {
-    background-color: var(--container-bg-color);
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    margin-bottom: 40px;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 35vh; /* 减小最小高度以减少外部空白 */
-}
-
-.content-wrapper {
-    max-width: 900px;
-}
-
-/* 信息内容板块的通用样式 */
-.info-section {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.info-section:last-child {
-    border-bottom: none;
-}
-
-.info-section h2 {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: var(--text-color);
-}
-
-.info-section p, .info-section li {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--subtle-text-color);
-    max-width: 700px; /* 优化长文本阅读体验 */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* 特性板块的网格布局 */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    text-align: center;
-}
-
-.feature-item h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
-.feature-item p {
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-/* FAQ 板块样式 */
-.faq-item {
-    margin-bottom: 20px;
-    text-align: left;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.faq-item h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--text-color);
-}
-
-/* 代码高亮样式 */
-.code-inline {
-    font-family: "SF Mono", "Consolas", "Menlo", monospace;
-    background-color: rgba(0, 0, 0, 0.05);
-    padding: 2px 6px;
-    border-radius: 6px;
-    font-size: 0.9em;
-}
-
-/* 文本中高亮关键词的样式 */
-.highlight {
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-/* 结果展示区域样式 */
-.result-area {
-    width: 100%;
-    /* max-width: 1200px; */ /* 宽度已由父级 .tool-wrapper 控制 */
-    padding: 20px;
-    border-radius: 20px;
-    /* background-color: var(--container-bg-color); */ /* 背景已由父级 .tool-wrapper 控制 */
-    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */ /* 阴影已由父级 .tool-wrapper 控制 */
-}
-
-/* 网格布局样式，用于展示图片卡片 */
-.image-grid {
-    display: grid;
-    /* 自动填充列，每列最小 250px，最大 1fr (占据剩余空间) */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px; /* 卡片之间的间距 */
-    margin-bottom: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
-}
-
-/* 单个图片卡片的样式 */
-.image-card {
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    overflow: hidden; /* 确保内容不会超出圆角范围 */
-    background-color: #fcfcfc;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-}
-
-.image-card .image-preview {
-    width: 100%;
-    height: 180px; /* 固定高度 */
-    background-color: var(--bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.image-card img {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    object-fit: cover; /* 保持图片比例，裁剪多余部分 */
-}
-
-/* 图片信息区域的样式 */
-.image-info {
-    padding: 15px;
-    text-align: left;
-    font-size: 13px;
-}
-
-.image-info p {
-    margin: 0 0 8px;
-    white-space: nowrap; /* 防止文件名换行 */
-    overflow: hidden;
-    text-overflow: ellipsis; /* 文件名过长时显示省略号 */
-}
-
-.image-info .file-name {
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-.image-info .file-size {
-    color: var(--subtle-text-color);
-}
-
-.image-info .compressed-size {
-    font-weight: 500;
-    color: var(--accent-color);
-}
-
-/* 控制区域样式 */
-.controls {
-    margin: 20px 0;
-    padding: 20px;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.controls label {
-    display: block;
-    margin-bottom: 10px;
-    color: var(--subtle-text-color);
-}
-
-.controls .slider-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.controls input[type="range"] {
-    width: 60%;
-    max-width: 300px;
-}
-
-/* 下载区域样式 */
-.download-area {
-    margin-top: 20px;
-}
-
-.button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: var(--accent-color);
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none; /* 去除下划线 */
-    border-radius: 12px;
-    transition: background-color 0.2s;
-    border: none; /* 按钮不需要边框 */
-    cursor: pointer;
-}
-
-.button:hover {
-    background-color: #0066cc; /* 鼠标悬浮时加深颜色 */
-}
-
-/* 底部样式 */
-footer {
-    padding: 20px;
-    color: var(--subtle-text-color);
-    font-size: 12px;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    /* 诊断测试：临时将移动端背景变为红色 */
-    body {
-        background-color: red !important;
-    }
-
-    .hero-slogan h2 {
-        font-size: 2rem;
-    }
-
-    .hero-slogan p {
-        font-size: 1rem;
-    }
-    .image-grid {
-        /* 在小屏幕上，设置最小列宽，使其能更好地适应 */
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-
-    .info-section h2 {
-        font-size: 24px;
-    }
-
-    /* 主导航栏变为相对定位，以便菜单可以覆盖其上 */
-    .main-nav {
-        position: relative;
-        justify-content: space-between;
-    }
-
-    /* 在移动端隐藏常规导航菜单 */
-    .nav-menu {
-        display: none; /* 先隐藏 */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: white;
-        position: absolute;
-        top: 100%; /* 从导航栏正下方开始 */
-        right: 0;
-        width: 100%;
-        padding: 2rem 0;
-        border-top: 1px solid #eee;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        gap: 1.5rem;
-    }
-
-    /* 当菜单被激活时（通过JS添加.active类），显示它 */
-    .nav-menu.active {
-        display: flex;
-    }
-    
-    .nav-link {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* 在移动端显示汉堡菜单图标 */
-    .hamburger-menu {
-        display: flex;
-    }
-
-    /* 特性网格变为单列显示 */
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* 调整工具区域的内边距 */
-    .tool-wrapper {
-        padding: 1.5rem;
-    }
-}
-
-/* --- Text Remover Page Styles --- */
-
-.canvas-container {
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    overflow: hidden; /* 确保canvas不会超出边框 */
-    margin: 1rem auto;
-    width: 100%;
-    max-width: 800px;
-}
-
-#image-canvas {
-    display: block; /* 消除canvas下的微小空隙 */
-    width: 100%;
-    height: auto;
-    cursor: crosshair; /* 设置鼠标样式为十字准星 */
-}
-
-.editor-instructions {
-    color: var(--subtle-text-color);
-    margin-bottom: 1rem;
-}
-
-.editor-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.brush-slider-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--subtle-text-color);
-}
-
-/* 确保页脚始终位于页面底部 */
-body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -493,94 +24,67 @@ main {
     flex-grow: 1;
 }
 
-/* 现有页脚的简单样式 */
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #f8f9fa;
-    color: var(--text-secondary);
-    width: 100%;
+/* 头部样式 */
+header {
+    background-color: var(--container-bg-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 20px;
 }
 
-/* --- 新的、多栏的网站页脚 --- */
-.site-footer {
-    /* 漂亮的蓝色渐变背景，灵感来自参考图片 */
-    background-image: linear-gradient(to right, #007bff, #00c6ff);
-    color: white;
-    padding: 3rem 2rem;
-    margin-top: auto; /* 确保它被推到flex容器的底部 */
-}
-
-/* 页脚内容的网格布局 */
-.footer-grid {
+/* 导航栏样式 */
+.main-nav {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap; /* 在小屏幕上换行 */
+    align-items: center;
+    height: 60px;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 2rem; /* 各栏之间的间距 */
 }
 
-/* 页脚的每一栏 */
-.footer-column {
-    flex: 1; /* 每栏平均分配空间 */
-    min-width: 200px; /* 确保在小屏幕上不会太窄 */
-}
-
-/* Logo栏的特殊样式 */
-.footer-column.logo-column .footer-logo {
-    width: 120px; /* 控制Logo大小 */
-    margin-bottom: 1rem;
-}
-
-/* 页脚栏的标题 */
-.footer-column h3 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-}
-
-/* 页脚的链接列表 */
-.footer-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-column ul li {
-    margin-bottom: 0.75rem;
-}
-
-.footer-column ul li a {
-    color: white;
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-color);
     text-decoration: none;
-    opacity: 0.9;
-    transition: opacity 0.2s;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-.footer-column ul li a:hover {
-    opacity: 1;
-    text-decoration: underline;
+.logo-img {
+    height: 40px;
 }
 
-/* 底部的版权信息 */
-.footer-copyright {
-    text-align: center;
-    margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.9rem;
-    opacity: 0.8;
+/* 导航菜单容器 */
+.nav-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
 }
 
-/* 响应式设计：在小屏幕上，各栏堆叠显示 */
-@media (max-width: 768px) {
-    .footer-grid {
-        flex-direction: column;
-        align-items: center; /* 居中对齐 */
-        text-align: center;
-    }
+/* 导航链接样式 */
+.nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background-color: transparent;
+    color: var(--text-color);
+    margin: 0 4px;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    border-color: var(--primary-color-light);
 }
 
 /* --- 移动端汉堡菜单 --- */
@@ -609,4 +113,190 @@ footer {
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
+}
+
+.hero-slogan {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.hero-slogan h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 15px;
+}
+
+.hero-slogan p {
+    font-size: 18px;
+    color: var(--subtle-text-color);
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* 主内容区样式 */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.upload-box, .tool-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.tool-wrapper {
+    background-color: var(--container-bg-color);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 35vh;
+}
+
+.upload-box {
+    max-width: 600px;
+    padding: 40px 15px;
+    border: 2px dashed var(--border-color);
+    border-radius: 20px;
+    background-color: var(--container-bg-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+.upload-box:hover {
+    background-color: #f0f7ff;
+}
+
+.upload-box p {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.upload-box span {
+    color: var(--subtle-text-color);
+    font-size: 14px;
+}
+/* ... [Omitted for brevity, includes all other styles like .content-wrapper, .info-section, etc.] ... */
+.result-area, .controls, .image-grid, .download-area {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* --- 响应式设计 --- */
+@media (max-width: 768px) {
+    .main-nav {
+        position: relative;
+    }
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 2rem 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        gap: 1.5rem;
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+    .hamburger-menu {
+        display: flex;
+    }
+    .hero-slogan h2 {
+        font-size: 2rem;
+    }
+    .hero-slogan p {
+        font-size: 1rem;
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .tool-wrapper {
+        padding: 1.5rem;
+    }
+}
+
+/* 页脚样式 */
+.site-footer {
+    background-image: linear-gradient(to right, #007bff, #00c6ff);
+    color: white;
+    padding: 3rem 2rem;
+    margin-top: auto;
+}
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+.footer-column.logo-column .footer-logo {
+    width: 120px;
+    margin-bottom: 1rem;
+}
+.footer-column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-column ul li {
+    margin-bottom: 0.75rem;
+}
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+.footer-column ul li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+.footer-copyright {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 } 
