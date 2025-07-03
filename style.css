@@ -374,6 +374,11 @@ footer {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
+    /* 诊断测试：临时将移动端背景变为红色 */
+    body {
+        background-color: red !important;
+    }
+
     .hero-slogan h2 {
         font-size: 2rem;
     }
