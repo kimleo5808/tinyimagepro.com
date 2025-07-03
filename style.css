@@ -61,26 +61,31 @@ header {
     gap: 1rem; /* 菜单项之间的间距 */
 }
 
-/* 导航链接样式 - 纯文本按钮 */
+/* 导航链接样式 - 最终版本 */
 .nav-link {
-    padding: 0.6rem 1.2rem; /* 内边距，让按钮更饱满 */
+    padding: 0.5rem 1rem; /* 调整内边距，让按钮更精致 */
     border-radius: 8px; /* 圆角 */
     text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.2s ease, color 0.2s ease; /* 过渡效果 */
-    border: 1px solid transparent; /* 预留边框位置，避免跳动 */
+    font-weight: 600; /* 加粗字体 (600是半粗体，效果很好) */
+    transition: all 0.2s ease-in-out; /* 平滑过渡效果 */
+    border: 1px solid #cce5ff; /* 漂亮的浅蓝色边框 */
     background-color: transparent; /* 默认背景透明 */
-    color: var(--text-color); /* 默认文字颜色 */
+    color: var(--text-color);
+    margin: 0 4px; /* 按钮之间的微小间距 */
 }
 
 .nav-link:hover {
-    background-color: #eef1f5; /* 鼠标悬浮时，使用非常浅的灰色 */
+    background-color: #e6f2ff; /* 鼠标悬浮时淡蓝色背景 */
+    border-color: #99caff; /* 悬浮时边框颜色加深 */
+    transform: translateY(-1px); /* 轻微上浮效果 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 添加细微阴影 */
 }
 
 .nav-link.active {
     background-color: var(--accent-color); /* 激活状态，使用网站的主题蓝色 */
     color: #fff; /* 文字颜色变为白色，形成对比 */
     border-color: var(--accent-color); /* 边框也使用主题色 */
+    box-shadow: none; /* 激活时移除阴影 */
 }
 
 .hero-slogan {
