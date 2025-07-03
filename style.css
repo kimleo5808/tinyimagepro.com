@@ -161,13 +161,25 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 35vh;
+    padding: 1.5rem;
 }
 
 /* 恢复内容区域的排版样式 */
 .content-wrapper {
     width: 100%;
     max-width: 900px;
-    text-align: left; /* 关键修复：将段落文本设为左对齐 */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.content-wrapper .info-section {
+    text-align: left;
+}
+
+.content-wrapper .info-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .info-section h2 {
