@@ -49,7 +49,8 @@ header {
 }
 
 .logo-img {
-    height: 40px; /* logo 图片高度 */
+    height: 40px; /* logo 图片高度恢复到40px */
+    width: auto; /* 宽度自动，保持比例 */
 }
 
 /* 导航菜单容器 */
@@ -63,10 +64,11 @@ header {
 
 /* 导航链接样式 - 最终版本 */
 .nav-link {
-    padding: 0.5rem 1rem; /* 调整内边距，让按钮更精致 */
-    border-radius: 8px; /* 圆角 */
+    padding: 0.4rem 0.8rem; /* 减小内边距，让按钮更小巧 */
+    font-size: 14px; /* 减小字体大小 */
+    border-radius: 6px; /* 减小圆角，更匹配小尺寸 */
     text-decoration: none;
-    font-weight: 600; /* 加粗字体 (600是半粗体，效果很好) */
+    font-weight: 500; /* 调整字重为正常，避免加粗后显得拥挤 */
     transition: all 0.2s ease-in-out; /* 平滑过渡效果 */
     border: 1px solid #cce5ff; /* 漂亮的浅蓝色边框 */
     background-color: transparent; /* 默认背景透明 */
