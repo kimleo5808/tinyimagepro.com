@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const removeTextBtn = document.getElementById('remove-text-btn');
     const instructions = document.querySelector('.editor-instructions');
 
+    // 为画笔涂抹创建一个独立的、不可见的Canvas，用于生成蒙版
+    // 这样可以确保我们发送给API的蒙版数据是纯净的，并且与原图分离
+    const maskDrawingCanvas = document.createElement('canvas');
+    const maskDrawingCtx = maskDrawingCanvas.getContext('2d');
+
     let originalImage = null; // 用于存储原始未修改的图片
     let isDrawing = false;
     let lastX = 0;
@@ -68,6 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const scale = containerWidth / originalImage.width;
         canvas.width = containerWidth;
         canvas.height = originalImage.height * scale;
+
+        // 同时也设置离屏蒙版Canvas的尺寸，并确保它是干净的
+        maskDrawingCanvas.width = canvas.width;
+        maskDrawingCanvas.height = canvas.height;
+        maskDrawingCtx.clearRect(0, 0, maskDrawingCanvas.width, maskDrawingCanvas.height);
+
+        // 在可见的Canvas上绘制图片
         ctx.drawImage(originalImage, 0, 0, canvas.width, canvas.height);
     }
     
@@ -86,12 +98,25 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.lineJoin = 'round';
         ctx.lineCap = 'round';
         ctx.lineWidth = brushSizeSlider.value;
-        // 使用半透明红色，这样用户能看到笔刷下的内容
+        
+        // 在可见的Canvas上绘制红色笔刷，给用户提供视觉反馈
         ctx.strokeStyle = 'rgba(255, 0, 0, 0.7)';
         ctx.beginPath();
         ctx.moveTo(lastX, lastY);
         ctx.lineTo(x, y);
         ctx.stroke();
+
+        // 同时，在离屏的蒙版Canvas上绘制同样的笔迹
+        // 这个Canvas只记录笔迹，不包含原图
+        maskDrawingCtx.lineJoin = ctx.lineJoin;
+        maskDrawingCtx.lineCap = ctx.lineCap;
+        maskDrawingCtx.lineWidth = ctx.lineWidth;
+        maskDrawingCtx.strokeStyle = 'white'; // 在蒙版上直接用白色绘制即可
+        maskDrawingCtx.beginPath();
+        maskDrawingCtx.moveTo(lastX, lastY);
+        maskDrawingCtx.lineTo(x, y);
+        maskDrawingCtx.stroke();
+
         [lastX, lastY] = [x, y];
     }
     
@@ -159,25 +184,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // 从涂抹的Canvas创建黑白蒙版Blob
     function createMaskBlob() {
         return new Promise(resolve => {
-            const maskCanvas = document.createElement('canvas');
-            maskCanvas.width = canvas.width;
-            maskCanvas.height = canvas.height;
-            const maskCtx = maskCanvas.getContext('2d');
+            // 1. 创建一个最终的、与原始图片同样大小的蒙版Canvas
+            const finalMaskCanvas = document.createElement('canvas');
+            finalMaskCanvas.width = originalImage.width;
+            finalMaskCanvas.height = originalImage.height;
+            const finalMaskCtx = finalMaskCanvas.getContext('2d');
             
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const maskImageData = maskCtx.createImageData(canvas.width, canvas.height);
+            // 2. 将我们记录的纯笔迹（来自离屏Canvas），拉伸绘制到最终的蒙版上
+            //    这就解决了原图和蒙版尺寸不一致的问题
+            finalMaskCtx.drawImage(maskDrawingCanvas, 0, 0, originalImage.width, originalImage.height);
 
-            // 遍历像素，如果被涂抹过（不透明），就在蒙版上设为白色，否则为黑色
+            // 3. 遍历像素，生成API要求的纯黑白蒙版
+            const imageData = finalMaskCtx.getImageData(0, 0, finalMaskCanvas.width, finalMaskCanvas.height);
+            const maskImageData = finalMaskCtx.createImageData(finalMaskCanvas.width, finalMaskCanvas.height);
+
+            // 任何被涂抹过的区域（alpha > 0），在最终蒙版里都设为纯白色
             for (let i = 0; i < imageData.data.length; i += 4) {
-                if (imageData.data[i + 3] > 0) { // Alpha channel > 0 means it was painted
+                if (imageData.data[i + 3] > 0) { // 检查Alpha通道
                     maskImageData.data[i] = 255;
                     maskImageData.data[i + 1] = 255;
                     maskImageData.data[i + 2] = 255;
                     maskImageData.data[i + 3] = 255;
                 }
             }
-            maskCtx.putImageData(maskImageData, 0, 0);
-            maskCanvas.toBlob(resolve, 'image/png');
+            finalMaskCtx.putImageData(maskImageData, 0, 0);
+            
+            // 4. 从最终的蒙版Canvas生成Blob文件
+            finalMaskCanvas.toBlob(resolve, 'image/png');
         });
     }
 
