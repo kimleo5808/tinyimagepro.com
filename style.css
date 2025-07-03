@@ -44,7 +44,7 @@ header {
     gap: 0.75rem; /* logo 和文字的间距 */
     font-size: 1.5rem; /* 字体大一点 */
     font-weight: 600; /* 字体粗一点 */
-    color: var(--text-primary);
+    color: var(--text-color);
     text-decoration: none;
 }
 
@@ -70,7 +70,7 @@ header {
     transition: background-color 0.2s ease, color 0.2s ease; /* 过渡效果 */
     border: 1px solid transparent; /* 预留边框位置，避免跳动 */
     background-color: transparent; /* 默认背景透明 */
-    color: var(--text-primary); /* 默认文字颜色 */
+    color: var(--text-color); /* 默认文字颜色 */
 }
 
 .nav-link:hover {
