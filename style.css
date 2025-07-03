@@ -20,18 +20,26 @@ body {
     min-height: 100vh;
 }
 
+/* --- 基础布局 --- */
 main {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* 头部样式 */
+/* --- 头部与导航 --- */
 header {
     background-color: var(--container-bg-color);
     border-bottom: 1px solid var(--border-color);
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* 导航栏样式 */
 .main-nav {
     display: flex;
     justify-content: space-between;
@@ -55,7 +63,6 @@ header {
     height: 40px;
 }
 
-/* 导航菜单容器 */
 .nav-menu {
     list-style-type: none;
     margin: 0;
@@ -64,7 +71,6 @@ header {
     gap: 2rem;
 }
 
-/* 导航链接样式 */
 .nav-link {
     padding: 0.5rem 1rem;
     font-size: 14px;
@@ -87,34 +93,6 @@ header {
     border-color: var(--primary-color-light);
 }
 
-/* --- 移动端汉堡菜单 --- */
-.hamburger-menu {
-    display: none; /* 默认在桌面端隐藏 */
-    flex-direction: column;
-    justify-content: space-around;
-    width: 1.5rem; /* 减小宽度 */
-    height: 1.5rem; /* 减小高度 */
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 10;
-}
-
-.hamburger-menu:focus {
-    outline: none;
-}
-
-.hamburger-menu div {
-    width: 1.5rem; /* 减小横线宽度 */
-    height: 0.15rem; /* 减小横线粗细 */
-    background: var(--text-color);
-    border-radius: 10px;
-    transition: all 0.3s linear;
-    position: relative;
-    transform-origin: 1px;
-}
-
 .hero-slogan {
     text-align: center;
     padding: 3rem 1rem;
@@ -135,22 +113,7 @@ header {
     line-height: 1.6;
 }
 
-/* 主内容区样式 */
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-}
-
-.upload-box, .tool-wrapper {
-    width: 100%;
-    max-width: 1200px;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
+/* --- 上传与工具区域 --- */
 .tool-wrapper {
     background-color: var(--container-bg-color);
     border-radius: 20px;
@@ -161,29 +124,10 @@ main {
     justify-content: center;
     align-items: center;
     min-height: 35vh;
-    padding: 1.5rem;
-}
-
-/* 恢复内容区域的排版样式 */
-.content-wrapper {
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 1200px;
     padding: 20px;
     box-sizing: border-box;
-}
-
-.content-wrapper .info-section {
-    text-align: left;
-}
-
-.content-wrapper .info-section h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.info-section h2 {
-    text-align: center; /* 保持大标题居中，更美观 */
 }
 
 .upload-box {
@@ -196,6 +140,7 @@ main {
     transition: background-color 0.2s;
     text-align: center;
 }
+
 .upload-box:hover {
     background-color: #f0f7ff;
 }
@@ -210,57 +155,50 @@ main {
     color: var(--subtle-text-color);
     font-size: 14px;
 }
-/* ... [Omitted for brevity, includes all other styles like .content-wrapper, .info-section, etc.] ... */
+
+/* --- 结果展示区域 --- */
 .result-area, .controls, .image-grid, .download-area {
     width: 100%;
     max-width: 1200px;
 }
 
-/* --- 响应式设计 --- */
-@media (max-width: 768px) {
-    .main-nav {
-        position: relative;
-    }
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: white;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        padding: 2rem 0;
-        border-top: 1px solid #eee;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        gap: 1.5rem;
-    }
-    .nav-menu.active {
-        display: flex;
-    }
-    .nav-link {
-        width: 100%;
-        text-align: center;
-    }
-    .hamburger-menu {
-        display: flex;
-    }
-    .hero-slogan h2 {
-        font-size: 2rem;
-    }
-    .hero-slogan p {
-        font-size: 1rem;
-    }
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-    .tool-wrapper {
-        padding: 1.5rem;
-    }
+/* --- 文字内容区域 (关键修复) --- */
+.content-wrapper {
+    width: 100%;
+    max-width: 900px; /* 限制内容宽度，更易读 */
+    margin: 2rem auto; /* 上下留出间距，并水平居中 */
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-/* 页脚样式 */
+.content-wrapper .info-section {
+    margin-bottom: 3rem; /* 每个信息板块之间留出距离 */
+    text-align: left; /* 关键：让所有信息板块内的文字左对齐 */
+}
+
+.content-wrapper h2 {
+    text-align: center; /* 但保持每个板块的大标题 H2 居中 */
+    margin-bottom: 1.5rem;
+}
+
+.content-wrapper h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* 针对普通段落和列表，强制左对齐并增加行高 */
+.info-section > p, .faq-item > p, .info-section ul li {
+    text-align: left !important;
+    line-height: 1.8;
+}
+
+/* --- 页脚 --- */
 .site-footer {
     background-image: linear-gradient(to right, #007bff, #00c6ff);
     color: white;
@@ -316,10 +254,78 @@ main {
     opacity: 0.8;
 }
 
+/* --- 响应式设计 --- */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.hamburger-menu:focus {
+    outline: none;
+}
+
+.hamburger-menu div {
+    width: 1.5rem;
+    height: 0.15rem;
+    background: var(--text-color);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
 @media (max-width: 768px) {
+    .main-nav {
+        position: relative;
+    }
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 2rem 0;
+        border-top: 1px solid #eee;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        gap: 1.5rem;
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+    .hamburger-menu {
+        display: flex;
+    }
+    .hero-slogan h2 {
+        font-size: 2rem;
+    }
+    .hero-slogan p {
+        font-size: 1rem;
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .tool-wrapper {
+        padding: 1.5rem;
+    }
     .footer-grid {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-} 
+}
