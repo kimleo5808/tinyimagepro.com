@@ -52,29 +52,25 @@ header {
     height: 40px; /* logo 图片高度 */
 }
 
-/* 导航菜单容器 - 确保按钮正常显示 - 测试版本 */
+/* 导航菜单容器 */
 .nav-menu {
     list-style-type: none; /* 移除列表默认的小黑点 */
     margin: 0;
-    padding: 10px; /* 增加内边距 */
+    padding: 0;
     display: flex; /* 让菜单项横向排列 */
     gap: 1rem; /* 菜单项之间的间距 */
-    background-color: rgba(0, 122, 255, 0.1); /* 浅蓝色背景用于调试 */
-    border-radius: 8px; /* 圆角 */
 }
 
-/* 导航链接样式 - 纯文本按钮 - 测试版本 */
+/* 导航链接样式 - 纯文本按钮 */
 .nav-link {
     padding: 0.6rem 1.2rem; /* 内边距，让按钮更饱满 */
     border-radius: 8px; /* 圆角 */
     text-decoration: none;
     font-weight: 500;
     transition: background-color 0.2s ease, color 0.2s ease; /* 过渡效果 */
-    border: 2px solid var(--accent-color); /* 明显的边框 */
-    background-color: #f8f9fa; /* 浅色背景 */
+    border: 1px solid transparent; /* 预留边框位置，避免跳动 */
+    background-color: transparent; /* 默认背景透明 */
     color: var(--text-color); /* 默认文字颜色 */
-    display: inline-block; /* 确保按钮显示 */
-    margin: 0 5px; /* 按钮间距 */
 }
 
 .nav-link:hover {

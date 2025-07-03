@@ -1,3 +1,0 @@
-测试部署 - 导航栏修复
-时间: 2024年现在
-状态: 导航栏应该显示两个按钮：Image Compressor 和 JPG to PDF 
