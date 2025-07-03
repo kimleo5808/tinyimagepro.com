@@ -433,4 +433,105 @@ footer {
     align-items: center;
     gap: 10px;
     color: var(--subtle-text-color);
+}
+
+/* 确保页脚始终位于页面底部 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* 现有页脚的简单样式 */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    color: var(--text-secondary);
+    width: 100%;
+}
+
+/* --- 新的、多栏的网站页脚 --- */
+.site-footer {
+    /* 漂亮的蓝色渐变背景，灵感来自参考图片 */
+    background-image: linear-gradient(to right, #007bff, #00c6ff);
+    color: white;
+    padding: 3rem 2rem;
+    margin-top: auto; /* 确保它被推到flex容器的底部 */
+}
+
+/* 页脚内容的网格布局 */
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* 在小屏幕上换行 */
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem; /* 各栏之间的间距 */
+}
+
+/* 页脚的每一栏 */
+.footer-column {
+    flex: 1; /* 每栏平均分配空间 */
+    min-width: 200px; /* 确保在小屏幕上不会太窄 */
+}
+
+/* Logo栏的特殊样式 */
+.footer-column.logo-column .footer-logo {
+    width: 120px; /* 控制Logo大小 */
+    margin-bottom: 1rem;
+}
+
+/* 页脚栏的标题 */
+.footer-column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+/* 页脚的链接列表 */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.footer-column ul li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* 底部的版权信息 */
+.footer-copyright {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* 响应式设计：在小屏幕上，各栏堆叠显示 */
+@media (max-width: 768px) {
+    .footer-grid {
+        flex-direction: column;
+        align-items: center; /* 居中对齐 */
+        text-align: center;
+    }
 } 
