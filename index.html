@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
-    <title>TinyImagePro - Online Image Compressor for PNG & JPEG</title>
+    <title>TinyImagePro - 免费在线图片压缩</title>
     <meta name="description" content="TinyImagePro is a free and powerful online tool to compress your PNG and JPEG images. Reduce file size with our batch image compression tool without sacrificing quality. Secure, fast, and all in your browser.">
     <meta name="keywords" content="image compression, compress image, image optimizer, png compressor, jpg compressor, reduce image size, image size reducer, batch image compression, tinyimagepro">
     
@@ -12,7 +12,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7892203965442076"
      crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="style.css?v=1.2">
+    <link rel="stylesheet" href="style.css?v=1.4">
     
     <!-- Google tag (gtag.js) - 请将 G-YOUR_ID_HERE 替换为你的衡量ID -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_ID_HERE"></script>
@@ -26,67 +26,68 @@
 </head>
 <body>
 
-    <!-- Page Header -->
+    <!-- 页面头部 -->
     <header>
-        <!-- 导航栏 -->
         <nav class="main-nav">
+            <!-- Logo 链接到首页 -->
             <a href="index.html" class="logo-container">
-                <img src="assets/logo.png" alt="TinyImagePro Logo" class="logo-img">
+                <img src="images/logo.svg" alt="TinyImagePro Logo" class="logo-img">
             </a>
+            <!-- 导航菜单 -->
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active">Image Compressor</a></li>
                 <li><a href="jpg-to-pdf.html" class="nav-link">JPG to PDF</a></li>
                 <li><a href="text-remover.html" class="nav-link">Text Remover</a></li>
             </ul>
-            <!-- 汉堡菜单按钮 -->
+            <!-- 移动端汉堡菜单按钮 -->
             <button class="hamburger-menu">
                 <div></div>
                 <div></div>
                 <div></div>
             </button>
         </nav>
+        <!-- 页面标语 -->
         <div class="hero-slogan">
-            <h2>Compress Images Instantly</h2>
-            <p>Reduce JPG, PNG, GIF, or SVG file size without losing quality. Fast, secure, and 100% free.</p>
+            <h2>在线图片压缩</h2>
+            <p>轻松优化您的 PNG 和 JPG 图片，不牺牲质量，安全、快速，完全在您的浏览器中完成。</p>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main>
-        <!-- The main tool area -->
+    <main class="main-content">
+        <!-- 主内容区域 -->
         <div class="tool-wrapper">
-            <!-- Upload Box -->
+            <!-- 上传框 -->
             <section class="upload-box">
                 <div id="upload-label">
-                    <p>Click or drag images here to upload</p>
-                    <span>Supports PNG, JPG, etc.</span>
+                    <p>点击或拖动图片到此以上传</p>
+                    <span>支持 PNG, JPG 等格式</span>
                 </div>
-                <!-- File input, visually hidden, triggered by clicking the parent. Now accepts multiple files. -->
                 <input type="file" id="file-input" accept="image/png, image/jpeg" multiple hidden>
             </section>
-    
-            <!-- Results Area, hidden by default. Redesigned for batch processing. -->
-            <section class="result-area" id="result-area" hidden>
-                <!-- Global Controls -->
-                <div class="controls">
-                    <label for="quality-slider">Compression Quality (lower value = higher compression)</label>
-                    <div class="slider-container">
-                        <input type="range" id="quality-slider" min="1" max="100" value="80">
-                        <span id="quality-value">80%</span>
-                    </div>
-                </div>
-    
-                <!-- Grid for image previews -->
-                <div class="image-grid" id="image-grid">
-                    <!-- Image cards will be dynamically inserted here by JavaScript -->
-                </div>
-    
-                <!-- Download Area -->
-                <div class="download-area">
-                    <button id="download-btn" class="button">Download All (.zip)</button>
-                </div>
-            </section>
         </div>
+
+        <!-- Results Area, hidden by default. Redesigned for batch processing. -->
+        <section class="result-area" id="result-area" hidden>
+            <!-- Global Controls -->
+            <div class="controls">
+                <label for="quality-slider">Compression Quality (lower value = higher compression)</label>
+                <div class="slider-container">
+                    <input type="range" id="quality-slider" min="1" max="100" value="80">
+                    <span id="quality-value">80%</span>
+                </div>
+            </div>
+
+            <!-- Grid for image previews -->
+            <div class="image-grid" id="image-grid">
+                <!-- Image cards will be dynamically inserted here by JavaScript -->
+            </div>
+
+            <!-- Download Area -->
+            <div class="download-area">
+                <button id="download-btn" class="button">Download All (.zip)</button>
+            </div>
+        </section>
 
         <!-- Informational Content Sections for SEO -->
         <div class="content-wrapper">
@@ -107,12 +108,12 @@
                     </article>
                 </div>
             </section>
-
+    
             <section id="how-it-works" class="info-section">
                 <h2>How Our Image Compressor Works</h2>
                 <p>Our tool uses a smart, client-side lossy compression method to shrink photo files. When you need to <strong class="highlight">compress JPEG online</strong>, our algorithm intelligently reduces non-essential data. To <strong class="highlight">compress PNG</strong> files, it reduces the color palette while preserving full alpha transparency. This all happens in your browser, making it a fast and secure way to <strong class="highlight">reduce image size</strong> without a noticeable drop in quality.</p>
             </section>
-
+    
             <section id="faq" class="info-section">
                 <h2>Frequently Asked Questions</h2>
                 <div class="faq-item">
@@ -134,32 +135,20 @@
     <!-- Page Footer -->
     <footer class="site-footer">
         <div class="footer-grid">
-            <!-- 第一栏：Logo和导航 -->
+            <!-- 第一栏：Logo 和导航 -->
             <div class="footer-column logo-column">
-                <img src="assets/logo.png" alt="TinyImagePro Logo" class="footer-logo">
+                <a href="index.html"><img src="images/logo.svg" alt="TinyImagePro Logo" class="footer-logo"></a>
                 <ul>
                     <li><a href="index.html">Image Compressor</a></li>
                     <li><a href="jpg-to-pdf.html">JPG to PDF</a></li>
                     <li><a href="text-remover.html">Text Remover</a></li>
                 </ul>
             </div>
-
             <!-- 第二栏：法律信息 -->
             <div class="footer-column">
-                <h3>Legal</h3>
+                <h3>法律</h3>
                 <ul>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms-of-use.html">Terms of Use</a></li>
-                </ul>
-            </div>
-
-            <!-- 第三栏：社交与资源 -->
-            <div class="footer-column">
-                <h3>Social</h3>
-                <ul>
-                    <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                    <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="privacy-policy.html">隐私政策</a></li>
                 </ul>
             </div>
         </div>
